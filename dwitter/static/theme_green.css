@@ -54,10 +54,14 @@ ul.messages li.success {
   color: #003402;
 }
 
-
 .head-menu {
   background-color: #000000;
   border-bottom: 1px solid #39ff00;
+}
+
+.head-account-info .name {
+  color: #17ff00;
+  font-size: large;
 }
 
 .head-account-info .collapsible {
@@ -65,12 +69,20 @@ ul.messages li.success {
 }
 
 .head-account-info.is-logged-in:hover {
-  background: #141d14;
+  background: #042b00;
 }
 
 .head-account-info .collapsible li {
   border-bottom: none;
   color: #ff0606;
+}
+
+.head-account-info.is-logged-in .collapsible li {
+  background: #042b00;
+}
+
+.head-account-info.is-logged-in .collapsible li a {
+  color: #17ff00;
 }
 
 .header-title {
@@ -92,6 +104,7 @@ ul.messages li.success {
 
 .head-menu a {
   color: #17ff00;
+  background: #051700;
 }
 
 .head-menu {
@@ -102,18 +115,13 @@ ul.messages li.success {
   color: lime;
 }
 
-.head-account-info .name {
-  color: red;
-  font-size: large;
+.header-logo {
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 body {
   background: #081d00;
-}
-
-
-.head-account-info.is-logged-in .collapsible li {
-  background: #042b00;
 }
 
 #settings-list {
@@ -177,9 +185,10 @@ div.dark-section {
   background: #0006;
 }
 
-.end-of-feed {
-  background: #153a11 !important;
-  color: #ff5b5b;
+.end-of-feed,
+.loading {
+  background: #051700 !important;
+  color: #00ff53;
 }
 
 .comment-message code {

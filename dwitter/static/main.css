@@ -22,6 +22,22 @@
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
+.header-logo {
+  width: 30px;
+  height: 30px;
+  vertical-align: text-bottom
+}
+
+.head-menu-inner>* {
+  vertical-align: middle;
+}
+
+@media (max-width: 735px) {
+  #dwitter-header-text {
+    display: none;
+  }
+}
+
 textarea {
   border: 1px solid;
   padding: 3px;
@@ -381,8 +397,11 @@ iframe {
 }
 
 /* Enable hide/show styles for the header when scrolling, but only at low res. */
+
 /* A dweet canvas never grows taller than 320px, so after 420px both canvas and bloated header can fit on screen. */
+
 /* But if we want to accomodate the entire dweet box that's 572px max box height + 56px for small header - margins = 620px */
+
 @media (max-height: 620px) {
   .head-menu {
     transform: translateY(0);
@@ -442,16 +461,58 @@ iframe {
   }
 }
 
-.head-account-info .collapsible {
+
+.top-sort-list li .collapsible li {
+  display: block;
+  background: white;
+  border-bottom: 1px solid #ddd;
+  line-height: normal;
+  padding: 0;
+}
+
+.top-sort-list li .collapsible li:last-child {
+  border: none;
+}
+
+.top-sort-list li .collapsible li a {
+  width: 100px;
+  padding: 14px;
+  display: block;
+}
+
+.top-sort-list li .collapsible {
   position: absolute;
-  border: 1px solid #ddd;
-  right: 1rem;
   z-index: 10;
   transition: opacity .1s ease-in-out, margin .1s step-end;
   opacity: 0;
-  height: 0;
+  /* remove the hover-trigger while invisible */
+  margin-top: -9999px;
+  border: 1px solid #ddd;
+}
+
+.top-sort-list li:hover>.collapsible,
+.top-sort-list li .collapsible:hover {
+  position: absolute;
+  display: block;
+  opacity: 1;
+  transition: opacity .1s ease-in-out, margin .1s step-start;
+  margin-top: 0;
+}
+
+.head-account-info .collapsible {
+  position: absolute;
+  border: 1px solid #ddd;
+  right: 0;
+  z-index: 10;
+  transition: opacity .1s ease-in-out, margin .1s step-end;
+  opacity: 0;
   margin-top: -9999px;
   font-size: 0.8em;
+}
+
+.head-account-info.is-logged-in {
+  margin: -5px 0 -5px 5px;
+  padding: 5px;
 }
 
 .head-account-info.is-logged-in:hover {
@@ -469,9 +530,19 @@ iframe {
   list-style-type: none;
   background: white;
   border-bottom: 1px solid #ddd;
-  width: 150px;
-  padding: 14px;
   line-height: normal;
+}
+
+.head-account-info .collapsible li:last-child {
+  border: none;
+}
+
+.head-account-info .collapsible li a {
+  width: 150px;
+  display: block;
+  height: 100%;
+  padding: 14px;
+  color: #333;
 }
 
 .header-center-div {
@@ -700,6 +771,31 @@ body.new .top-sort-list a.new {
   font-weight: bold;
 }
 
+body.top-day .top-sort-list a.top-day,
+body.top-day .top-sort-list a.top {
+  font-weight: bold;
+}
+
+body.top-week .top-sort-list a.top-week,
+body.top-week .top-sort-list a.top {
+  font-weight: bold;
+}
+
+body.top-month .top-sort-list a.top-month,
+body.top-month .top-sort-list a.top {
+  font-weight: bold;
+}
+
+body.top-year .top-sort-list a.top-year,
+body.top-year .top-sort-list a.top {
+  font-weight: bold;
+}
+
+body.top-all .top-sort-list a.top-all,
+body.top-all .top-sort-list a.top {
+  font-weight: bold;
+}
+
 body.top .top-sort-list a.top {
   font-weight: bold;
 }
@@ -777,6 +873,7 @@ body.awesome .top-sort-list a.awesome {
   font-size: small;
   padding: 0;
   padding-left: 1em;
+  white-space: pre-wrap;
 }
 
 .dark-section .dweet-code textarea:focus {
